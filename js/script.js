@@ -87,6 +87,25 @@ class Person {
             console.log("Sorry, Empty hobby. Please try again.");
         }
     }
+    // Output the hobbies in the browser (in HTML, not console.)
+    outputListOfHobbies()
+    {
+        //New  HTML Element (<ul>)...
+        const hobbyList = document.createElement( "UL" );
+        // Loop, terminating based on the length of our hobbies property (array data-type.)
+        for (let index = 0; index < this.hobbies.length; index++) // index = index + 1
+        {
+            // New List item HTML ELement (<li>)..
+            const hobbyListItem = document.createElement( "LI" );
+            // Add text inside of the HTML Element
+            hobbyListItem.textContent = this.hobbies[index] ;// Index from our loop! Iterated each time
+            // Add the populated list item HTML Element (<li>) to the list HTML ELement (<ul>)
+            hobbyListItem.appendChild( hobbyListItem);
+        }
+        // Add the whole populated list HTMLElement (<ul>) to the webpage (inside <body>).
+        document.body.appendChild( hobbyList );
+
+    }
 }
 
 
@@ -106,7 +125,7 @@ jia.sayHello();
 // Running the birthday method..
 jia.birthday();// Now she is 24!
 console.log("Jia is Now..." + jia.age + "years old!") ;
-// Add Some hobbies to jia's list...
+// Add Some hobbies to Jia's list...
 jia.addHobby("Programming");
 jia.addHobby("Asking Question");
 console.log(jai.hobbies); // Check the hobbies property.
