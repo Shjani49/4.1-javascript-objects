@@ -65,6 +65,28 @@ class Person {
         // Add the new element to the body of our webpage.
         document.body.appendChild( helloElement );
     }
+    // Increment age property by one, via our "birthday" method.
+    birthday()
+    {
+        // Make sure to use "this" to refer to the current object!
+        // !!! typing just "age" would cause JS to look for a variable (that is not here!)
+        this.age = this.age + 1;
+    }
+    // Method to add a new hobby to our "this.hobbies" array property.
+    addHobby( hobby = "" )
+    {
+        // check if the hobby is filled in.
+        if( hobby.length > 0)
+        {
+            // If it is filled in, push it to the array!
+            this.hobbies.push( hobby );
+        }
+        else
+        {
+            // If it is NOT filled in, say so in the console :(
+            console.log("Sorry, Empty hobby. Please try again.");
+        }
+    }
 }
 
 
@@ -72,13 +94,22 @@ class Person {
 const sarah = new Person;
 console.log( sarah );
 sarah.sayHello();// Call upon a method to execute.
+sarah.birthday();
 
 //Note When we pass arguments, the default parameters are overwritten.
 const jia = new Person("Jia", 23, ["Sleep","Cosplay"] );
 console.log( jia );
 jia.height = "7'"; // we / can /update and add new properties (but should we? Probably not.)
 console.log(jia);
+// Running the sayHello method..
 jia.sayHello();
+// Running the birthday method..
+jia.birthday();// Now she is 24!
+console.log("Jia is Now..." + jia.age + "years old!") ;
+// Add Some hobbies to jia's list...
+jia.addHobby("Programming");
+jia.addHobby("Asking Question");
+console.log(jai.hobbies); // Check the hobbies property.
 
 // Values kept inside an object are considered "properties."
 // Sets of instructions kept inside an object are considered "methods."
